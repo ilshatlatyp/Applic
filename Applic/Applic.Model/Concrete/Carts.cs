@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using Applic.Model.Interfaces;
 
 namespace Applic.Model.Concrete
 {
@@ -29,6 +30,33 @@ namespace Applic.Model.Concrete
             }
         }
 
+        /// <summary>
+        /// Метод. Создает и возвращает новый корзину
+        /// </summary>
+        public ICart Create()
+        {
+            ICart cart;
+            cart = (ICart)new Cart();
+
+            return cart;
+        }
+
+        /// <summary>
+        /// Метод. Добавляет новую корзину
+        /// </summary>
+        public void Add(ICart cart)
+        {
+            _cartDbSet.Add((Cart)cart);
+            //saveChangesDelegat
+        }
+
+        /// <summary>
+        /// Метод. Удаляет корзину
+        /// </summary>
+        public void Remove(ICart cart)
+        {
+            _cartDbSet.Remove((Cart)cart);
+        }
 
     }
 }
