@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Applic.Model.Concrete.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+
+@foreach (var p in Model){
+    <div>Продукт: @p.ProductName</div>
+
+    @Html.BeginForm("Add to cart", "Cart")
+        @Html.Hidden("returUrl",Request.Url.PathAndQuery)
+        <input type="submit" value="+ Купить" />  
+
+    <div>Цена: @p.Price</div>
+}
+@foreach (var c in ViewBag.category){
+    <div>Категория: @c.CategoryName</div>
+}
+

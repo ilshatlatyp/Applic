@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Applic.Model.Interfaces;
+using Applic.Model.Abstract;
 
 namespace Applic.Model.Concrete
 {
@@ -15,37 +15,22 @@ namespace Applic.Model.Concrete
         public int UserId { get; set; }
 
         /// <summary>
-        /// Свойство. ФИО
+        /// Свойство. ФИО пользователя
         /// </summary>
         public string FIO { get; set; }
 
         /// <summary>
-        /// Свойство. Логин
+        /// Свойство. Логин пользователя
         /// </summary>
         public string Login { get; set; }
 
         /// <summary>
-        /// Свойство. Пароль
+        /// Свойство. Пароль пользователя
         /// </summary>
         public string Passw { get; set; }
 
         /// <summary>
-        /// Свойство. Долг/аванс покупателя
-        /// </summary>
-        public int Account { get; set; }
-
-        /// <summary>
-        /// Свойство. Номер телефона
-        /// </summary>
-        public int PhoneNumber { get; set; }
-
-        /// <summary>
-        /// Свойство. Заказ
-        /// </summary>
-        public Cart Order { get; set; }
-
-        /// <summary>
-        /// Свойство. Права пользователя
+        /// Свойство. Роль пользователя
         /// </summary>
         public string Role { get; set; }
     }

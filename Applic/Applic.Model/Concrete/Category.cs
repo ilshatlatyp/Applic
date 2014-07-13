@@ -8,7 +8,14 @@ namespace Applic.Model.Concrete
 {
     public class Category
     {
+        /// <summary>
+        /// Свойство. Идентификатор категории
+        /// </summary>
         public int CategoryId { get; set; }
+
+        /// <summary>
+        /// Свойство. Наименование категории
+        /// </summary>
         public string CategoryName { get; set; }
     }
 }
