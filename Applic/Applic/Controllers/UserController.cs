@@ -18,7 +18,12 @@ namespace Applic.Controllers
         //IQueryable<User> ee1 = EF.EUser;
         //IQueryable<Cart> ee2 = EF.ECart;
         IQueryable<Category> category = EF.ECategory;
-      
+        private IProducts productsList;
+
+        public UserController(IProducts products)
+        {
+            productsList = products;
+        }
 
         public ActionResult Index()
         {
@@ -26,5 +31,25 @@ namespace Applic.Controllers
             return View(product);
         }
 
+        public RedirectToRouteResult AddToCart(int productId, string returnUrl)
+        {
+            Product prod = (Product)productsList.GetProduct(productId);
+            if (prod != null)
+            {
+                GetCart().AddProduct(prod, 1);
+            }
+            return RedirectToAction("Index", new { returnUrl });
+        }
+
+        private Cart GetCart()
+        {
+            Cart cart = (Cart)Session["User"];
+            if (cart == null)
+            {
+                cart = new Cart();
+                Session["User"] = cart;
+            }
+            return cart;
+        }
     }
 }

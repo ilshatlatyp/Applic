@@ -8,7 +8,7 @@
 @foreach (var p in Model){
     <div>Продукт: @p.ProductName</div>
 
-    @Html.BeginForm("Add to cart", "Cart")
+    @Html.BeginForm("AddToCart", "User")
         @Html.Hidden("returUrl",Request.Url.PathAndQuery)
         <input type="submit" value="+ Купить" />  
 
